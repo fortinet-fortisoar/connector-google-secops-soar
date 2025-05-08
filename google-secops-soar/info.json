@@ -1,0 +1,132 @@
+{
+  "name": "google-secops-soar",
+  "version": "1.0.0",
+  "label": "Google SecOps SOAR",
+  "description": "Google Security Operations SOAR (Security Orchestration, Automation, and Response) is a cloud-native platform designed to help security teams detect, investigate, and respond to threats in real time.",
+  "publisher": "Fortinet CSE",
+  "icon_small_name": "small.png",
+  "icon_large_name": "large.png",
+  "category": [
+    "Analytics and SOAR"
+  ],
+  "contributor": "Daehyeob Kim",
+  "active": true,
+  "cs_approved": false,
+  "cs_compatible": true,
+  "help_online": "https://github.com/fortinet-fortisoar/connector-google-secops-soar/blob/release/1.0.0/docs/readme.md",
+  "configuration": {
+    "fields": [
+      {
+        "title": "Server URL",
+        "description": "Specify the URL of the Google SecOps SOAR server to connect and perform automated operations.",
+        "type": "text",
+        "name": "url",
+        "required": true,
+        "visible": true,
+        "editable": true,
+        "validation": {
+          "pattern": "^https?:\\/\\/(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\\.)+siemplify-soar\\.com$",
+          "patternError": "Should be something like below.\nhttps://subdomain.siemplify-soar.com"
+        },
+        "tooltip": "Specify the URL of the Google SecOps SOAR server to connect and perform automated operations."
+      },
+      {
+        "title": "API Key",
+        "description": "API Key to access the Google SecOps SOAR endpoint to which you will connect and perform the automated operations.",
+        "type": "password",
+        "name": "api_key",
+        "required": true,
+        "visible": true,
+        "editable": true,
+        "tooltip": "API Key to access the Google SecOps SOAR endpoint to which you will connect and perform the automated operations."
+      },
+      {
+        "title": "Verify SSL",
+        "description": "Specifies whether the SSL certificate for the server is to be verified or not. By default, this option is set as True.",
+        "type": "checkbox",
+        "name": "verify_ssl",
+        "required": true,
+        "visible": true,
+        "editable": true,
+        "value": true,
+        "tooltip": "Specifies whether the SSL certificate for the server is to be verified or not. By default, this option is set as True."
+      }
+    ]
+  },
+  "operations": [
+    {
+      "operation": "generic_api_call",
+      "title": "Execute an API Request",
+      "description": "Sends an API request to an API endpoint based on specified HTTP method, endpoint, and other input parameters that you have specified, enabling flexible API interactions tailored to user needs.",
+      "enabled": true,
+      "category": "investigation",
+      "annotation": "generic_api_call",
+      "output_schema": {
+        "result": "",
+        "api_data": ""
+      },
+      "parameters": [
+        {
+          "title": "HTTP Method",
+          "type": "select",
+          "name": "method",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "description": "Select an HTTP action for the request. You can select from the following options:  \n\nDELETE \n\nGET \n\nPATCH \n\nPOST \n\nPUT \n\nHEAD \n\nOPTIONS \n\nTRACE",
+          "value": "GET",
+          "options": [
+            "GET",
+            "PUT",
+            "POST",
+            "DELETE",
+            "PATCH",
+            "HEAD",
+            "OPTIONS",
+            "TRACE"
+          ]
+        },
+        {
+          "title": "Endpoint",
+          "description": "Specify the target API URL path for the request. For example, if the website is https://example.com and URL path is https://example.com/images/pic.jpg, the endpoint would be /images/pic.jpg.",
+          "type": "text",
+          "name": "api_endpoint",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "value": "",
+          "tooltip": "Specify the target API URL path for the request. For example, if the website is https://example.com and URL path is https://example.com/images/pic.jpg, the endpoint would be /images/pic.jpg."
+        },
+        {
+          "title": "Headers",
+          "description": "Specify the headers for the request.",
+          "type": "object",
+          "name": "headers",
+          "required": false,
+          "visible": false,
+          "editable": true,
+          "tooltip": "Specify the headers for the request."
+        },
+        {
+          "title": "Query Parameters",
+          "description": "(Optional) Specify any optional parameters to add to the URL and refine the request.",
+          "type": "object",
+          "name": "params",
+          "required": false,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Request Payload",
+          "description": "(Optional) Specify data, as JSON, to be sent as the request payload.",
+          "type": "object",
+          "name": "data",
+          "required": false,
+          "visible": true,
+          "editable": true
+        }
+      ],
+      "open": false
+    }
+  ]
+}

@@ -1,3 +1,10 @@
+"""
+Copyright start
+MIT License
+Copyright (c) 2025 Fortinet Inc
+Copyright end
+"""
+
 from connectors.core.connector import Connector
 from connectors.core.connector import get_logger, ConnectorError
 from django.utils.module_loading import import_string
@@ -30,6 +37,7 @@ def generic_api_call(config: dict, params: dict):
         return conn.generic_api_call(config, params)
     except Exception as e:
         raise ConnectionError(e.str)
+
 
 supported_operations = {
     "check_health": check_health,
