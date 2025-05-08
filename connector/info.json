@@ -1,0 +1,131 @@
+{
+    "name": "google-secops-soar",
+    "version": "1.0.0",
+    "label": "Google SecOps SOAR",
+    "description": "Google SecOps SOAR Connector",
+    "publisher": "anonyges@gmail.com",
+    "icon_small_name": "connector_logo_small.png",
+    "icon_large_name": "connector_logo_large.png",
+    "id": 150,
+    "configuration": {
+        "fields": [
+            {
+                "title": "URL",
+                "type": "text",
+                "name": "url",
+                "required": true,
+                "visible": true,
+                "editable": true,
+                "validation": {
+                    "pattern": "^https?:\\/\\/(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\\.)+siemplify-soar\\.com$",
+                    "patternError": "Should be something like below.\nhttps://subdomain.siemplify-soar.com"
+                }
+            },
+            {
+                "title": "API Key",
+                "type": "password",
+                "name": "api_key",
+                "required": true,
+                "visible": true,
+                "editable": true,
+                "value": ""
+            },
+            {
+                "title": "Verify SSL",
+                "type": "checkbox",
+                "name": "verify_ssl",
+                "required": true,
+                "visible": true,
+                "editable": true,
+                "value": true
+            }
+        ]
+    },
+    "operations": [
+        {
+            "operation": "generic_api_call",
+            "title": "Generic API call",
+            "description": "Makes API call to the given endpoint.",
+            "enabled": true,
+            "category": "",
+            "annotation": "",
+            "TEMPLATE_NOTE6": "--OUTPUT SCHEMA IS A SAMPLE RESPONSE FROM THIS CONNECTOR ACTION--",
+            "output_schema": {
+                "result": "",
+                "api_data": ""
+            },
+            "parameters": [
+                {
+                    "title": "api_endpoint",
+                    "type": "text",
+                    "name": "api_endpoint",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "value": "",
+                    "tooltip": "should include the whole string eg) \"/api/v1/helloworld\""
+                },
+                {
+                    "title": "method",
+                    "type": "select",
+                    "name": "method",
+                    "required": true,
+                    "visible": true,
+                    "editable": true,
+                    "value": "GET",
+                    "options": [
+                        "GET",
+                        "PUT",
+                        "POST",
+                        "DELETE",
+                        "PATCH",
+                        "HEAD",
+                        "OPTIONS",
+                        "TRACE"
+                    ]
+                },
+                {
+                    "title": "params",
+                    "type": "object",
+                    "name": "params",
+                    "required": false,
+                    "visible": true,
+                    "editable": true,
+                    "value": null,
+                    "tooltip": "same as requests library \"params\" will be converted to get in URL"
+                },
+                {
+                    "title": "data",
+                    "type": "object",
+                    "name": "data",
+                    "required": false,
+                    "visible": true,
+                    "editable": true,
+                    "value": null,
+                    "tooltip": "same as requests library \"data\" will be converted to get in Body"
+                },
+                {
+                    "title": "headers",
+                    "type": "object",
+                    "name": "headers",
+                    "required": false,
+                    "visible": false,
+                    "editable": true,
+                    "value": null,
+                    "tooltip": "overrides some value in header when header is set here"
+                }
+            ],
+            "open": false
+        }
+    ],
+    "category": [
+        "Analytics and SOAR"
+    ],
+    "contributor": null,
+    "active": true,
+    "cs_compatible": true,
+    "system": false,
+    "playbook_collections": [],
+    "help_online": null,
+    "vendor_version": null
+}
