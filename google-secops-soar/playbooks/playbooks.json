@@ -1,0 +1,92 @@
+{
+  "type": "workflow_collections",
+  "data": [
+    {
+      "uuid": "12fb4571-b2bb-4443-9b5a-a62a29324844",
+      "@type": "WorkflowCollection",
+      "workflows": [
+        {
+          "@type": "Workflow",
+          "uuid": "c55db456-ce4a-4ff6-933d-baf1b3f164ea",
+          "collection": "/api/3/workflow_collections/12fb4571-b2bb-4443-9b5a-a62a29324844",
+          "steps": [
+            {
+              "uuid": "eec381f9-4a2d-4ab2-9cf7-16bae5d8c7da",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "c88ec32d-ca31-4d3e-9053-9dceea00af3f",
+              "@type": "WorkflowStep",
+              "name": "Execute an API Request",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Google SecOps SOAR",
+                "config": "",
+                "params": {
+                  "method": "GET",
+                  "api_endpoint": "",
+                  "headers": "",
+                  "params": "",
+                  "data": ""
+                },
+                "version": "1.0.0",
+                "connector": "google-secops-soar",
+                "operation": "generic_api_call",
+                "operationTitle": "Execute an API Request"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Sends an API request to an API endpoint based on specified HTTP method, endpoint, and other input parameters that you have specified, enabling flexible API interactions tailored to user needs.",
+          "name": "Execute an API Request",
+          "tag": "#Google SecOps SOAR",
+          "recordTags": [
+            "Google",
+            "google-secops-soar"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/eec381f9-4a2d-4ab2-9cf7-16bae5d8c7da",
+          "routes": [
+            {
+              "uuid": "b450fbfb-4f21-459d-aff9-fb2920f8e321",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Execute an API Request",
+              "sourceStep": "/api/3/workflow_steps/eec381f9-4a2d-4ab2-9cf7-16bae5d8c7da",
+              "targetStep": "/api/3/workflow_steps/c88ec32d-ca31-4d3e-9053-9dceea00af3f"
+            }
+          ]
+        }
+      ],
+      "name": "Sample - Google SecOps SOAR - 1.0.0",
+      "description": "Google Security Operations SOAR (Security Orchestration, Automation, and Response) is a cloud-native platform designed to help security teams detect, investigate, and respond to threats in real time.",
+      "visible": true,
+      "recordTags": [
+        "Google",
+        "google-secops-soar"
+      ]
+    }
+  ]
+}
